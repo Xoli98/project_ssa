@@ -65,16 +65,16 @@ public class Main {
 		
 		//get training data
 		train_data = get_traindata();
+		//transform train data to vectors
 		double[][] X = transform(train_data);
+		//covert enumeration type to list
 		query_class = Collections.list(train_data.keys());
+		
+		//transform targets to vectors 
 		double[][] Y = transform_targets(query_class);
 		//save targets(category) to database
 		
-		System.out.println(train_data.keys());
-		System.out.println(query_class.toString());
-		System.out.println(train_data.values());
-		
-		//fit to model
+		//fit transformed trained model to model
 		fit(X,Y);
 		
 	}
