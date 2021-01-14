@@ -32,8 +32,6 @@ public class Main {
 					if(!model.isTrained()) train();
 					//display windows
 					
-					
-					
 					//two concurrent methods 
 					main_window_ui server = new main_window_ui(); //client 
 					send_query_ui client = new send_query_ui(); //server
@@ -46,19 +44,6 @@ public class Main {
 			}
 		});
 	}
-	
-	
-
-	
-	private static double[][] transform_targets(List<String> t) {
-		
-		double[][] Y = new double[no_categories][no_categories];
-		for(int i=0; i < query_class.size(); i++) {
-			Y[i][i] = 1;
-		}
-		return Y;
-	}
-	
 	
 	public static void train() {
 		
@@ -102,6 +87,16 @@ public class Main {
 		double[][] X = feature_selection.fit_transform(values);
 		System.out.println("features selected ..."); 
 		return X;
+	}
+	
+	
+	private static double[][] transform_targets(List<String> t) {
+		
+		double[][] Y = new double[no_categories][no_categories];
+		for(int i=0; i < query_class.size(); i++) {
+			Y[i][i] = 1;
+		}
+		return Y;
 	}
 	
 	public static Hashtable<String, String> get_traindata() {
