@@ -11,10 +11,7 @@ public class feature_selection {
 	static List<String> features;
 	public static List<String> vocab; 
 	
-	
-	
-	
-	
+	//convert string to vectors
 	public static double[][] fit_transform(List<String> values) { //fit_transform()
 		if(create_features(values)) {
 			//select features 
@@ -30,6 +27,8 @@ public class feature_selection {
 		
 	}
 	
+	
+	//create features(vocab) from sentences
 	private static boolean create_features(List<String> values){
 		//create features 
 		if(values == null) return false;
